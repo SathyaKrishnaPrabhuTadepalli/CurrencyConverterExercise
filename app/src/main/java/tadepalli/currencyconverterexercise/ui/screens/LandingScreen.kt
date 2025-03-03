@@ -46,16 +46,16 @@ fun LandingScreenContent(
     ) {
         CurrencyNameAndTextField(
             currencyName = currencyName1,
+            currencyValue = "",
             inputEnabled = true,
             onValueChange = {
-                Log.d("CurrencyConverter", "$currencyName1 value changed $it")
             }
         )
         CurrencyNameAndTextField(
             currencyName = currencyName2,
+            currencyValue = "",
             inputEnabled = false,
             onValueChange = {
-                Log.d("CurrencyConverter", "$currencyName2 value changed $it")
             }
         )
         FlipAction(
@@ -72,7 +72,7 @@ fun LandingScreenContent(
 fun CurrencyNameAndTextField(
     modifier: Modifier = Modifier,
     currencyName: String,
-    currencyValue: String = "",
+    currencyValue: String,
     inputEnabled: Boolean,
     onValueChange: (String) -> Unit,
 ) {
@@ -101,7 +101,7 @@ fun CurrencyNameAndTextField(
 @Composable
 fun FlipAction(
     modifier: Modifier = Modifier,
-    onFlipClicked: () -> Unit = {}
+    onFlipClicked: () -> Unit
 ) {
     Row(
         modifier = modifier,
